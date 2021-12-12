@@ -1,14 +1,14 @@
 const { Router } = require("express");
 
 const {
-  getNote,
+  getNotes,
   createNote,
   deleteNoteById,
 } = require("../../controllers/api/notes");
 
 const router = Router();
 
-router.get("/", getNote);
+router.get("/", getNotes);
 router.post("/", createNote);
 router.delete("/:id", deleteNoteById);
 
