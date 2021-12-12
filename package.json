@@ -2,9 +2,11 @@
   "name": "note-taker",
   "version": "1.0.0",
   "description": "an application called Note Taker that can be used to write and save notes using an Express.js back end and saving and retrieving note data from a JSON file",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "author": "",
   "license": "ISC",
