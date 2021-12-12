@@ -1,4 +1,3 @@
-
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
@@ -11,38 +10,36 @@ const getNotes = (req, res) => {
 };
 
 const createNote = (req, res) => {
-    const { title, text } = req.body;
-    const id = uuidv4();
-    const newNote = {
-      title,
-      text,
-      id,
-    };
+  const { title, text } = req.body;
+  const id = uuidv4();
+  const newNote = {
+    title,
+    text,
+    id,
+  };
 
-    const filePath = path.join(__dirname, "../../../db/db.json");
-    const notes = readFromFile(filePath);
+  const filePath = path.join(__dirname, "../../../db/db.json");
+  const notes = readFromFile(filePath);
 
-    notes.push(newNote);
+  notes.push(newNote);
 
-    writeToFile(filePath, notes);
+  writeToFile(filePath, notes);
 
-    res.json({ success: true });
-
+  res.json({ success: true });
 };
 const deleteNoteById = (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    const filePath = path.join(__dirname, "../../../db/db.json");
-    const notes = readFromFile(filePath);
-  
-    const filteredNotes = notes.filter((note) => {
-      return note.id !== id;
-    });
-  
-    writeToFile(filePath, filteredNotes);
-  
-    res.json({ success: true });
+  const filePath = path.join(__dirname, "../../../db/db.json");
+  const notes = readFromFile(filePath);
 
+  const filteredNotes = notes.filter((note) => {
+    return note.id !== id;
+  });
+
+  writeToFile(filePath, filteredNotes);
+
+  res.json({ success: true });
 };
 
 module.exports = {
