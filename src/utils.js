@@ -10,6 +10,15 @@ const readFromFile = (filePath) => {
   }
 };
 
+const writeToFile = (filePath, data) => {
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(data));
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 module.exports = {
   readFromFile,
+  writeToFile,
 };
