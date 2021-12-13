@@ -1,7 +1,7 @@
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
-const { readFromFile, writeTOFile } = require("../../utils");
+const { readFromFile, writeToFile } = require("../../utils");
 
 const getNotes = (req, res) => {
   const filePath = path.join(__dirname, "../../../db/db.json");
